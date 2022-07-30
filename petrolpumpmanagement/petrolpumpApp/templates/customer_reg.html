@@ -1,0 +1,92 @@
+
+{% include 'register.html' %}
+
+{% block content %}
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #726d22, #752916)
+}
+    .box {
+        width: 600px;
+        height:fit-content;
+        padding: 40px;
+        position: absolute;
+        top: 50%;
+        left: 65%;
+        background: #5a7a3f;
+        text-align: center;
+        transition: 0.25s;
+        margin-top: 100px;
+        border-radius: 30px;
+        border: 2px solid #65b9b9;
+    }
+    .box input[type="text"],
+    .box input[type="password"] {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #3498db;
+        padding: 10px 10px;
+        width: 400px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s
+    }
+    .box h2 {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+    .box input[type="text"]:focus,
+    .box input[type="password"]:focus {
+        width: 350px;
+        border-color: #dbae34;
+    }
+    .box input[type="submit"] {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #2ecc71;
+        padding: 10px 50px;
+        outline: none;
+        color: white;
+        border-radius: 20px;
+        transition: 0.25s;
+        cursor: pointer
+    }
+    
+    .box input[type="submit"]:hover {
+        background: #2ecc71
+    }
+    .forgot {
+        text-decoration: underline
+    }
+    
+    </style>
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+        <form action="{% url 'cust-reg' %}" method="POST" class="box">
+            <div class="form-group">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">Customer Registeration:</h2>
+            {{cus_form.as_p}}
+            {{cus_info_form.as_p}}
+            <button type="submit" class="btn btn-success">Register</button>
+            </div>
+        </form>
+    </div>
+    
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% include "footer.html" %}
+{% endblock %}      

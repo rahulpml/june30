@@ -1,0 +1,91 @@
+{% include 'base.html' %}
+{% include 'cust_dash.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<style>
+    body {
+ margin: 0;
+ padding: 0;
+ font-family: sans-serif;
+ background: linear-gradient(to right, #cccca5, #913c27)
+}
+.box{
+ width: 600px;
+ height:750px;
+ padding: 40px;
+ position: absolute;
+ top: 50%;
+ left: 70%;
+ background: linear-gradient(to right, #becef0, #92d175);
+ text-align: center;
+ transition: 0.25s;
+ margin-top: 100px;
+ padding-bottom: 20px;
+ border-radius: 10px;
+
+}
+.box h3{
+     color: rgb(55, 24, 192);
+     text-transform: uppercase;
+     font-weight: 500;
+ }
+ .box input[type="text"],
+ .box input[type="Textarea"] {
+     border: 0;
+     background: none;
+     display:inline;
+     margin: 20px auto;
+     text-align: center;
+     border: 2px solid #3498db;
+     padding: 10px 10px;
+     width: 300px;
+     height:35px;
+
+     outline: none;
+     color: rgb(199, 23, 23);
+     border-radius: 19px;
+     transition: 0.25s;
+     margin-left: 40px;
+     
+ }
+ .box input[type="text"]:focus,
+ .box input[type="password"]:focus {
+     width: 310px;
+     border-color: #da302a;
+ }
+ .box button{
+     border: 0;
+     background: none;
+     display: block;
+     margin: 20px auto;
+     text-align: center;
+     border: 2px solid #2ecc71;
+     padding: 10px 50px;
+     outline: none;
+     color: white;
+     border-radius: 20px;
+     transition: 0.25s;
+     cursor: pointer
+ }
+ .box button:hover {
+     background: #27ce27
+ }
+
+</style>
+
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+        <form action="{% url 'create-booking' %}" method="POST" class="box">
+            <div class="form-group">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">Vehicle Service Booking:</h2>
+            {{form|crispy}}
+            <button type="submit" class="btn btn-success">Book</button>
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% include 'base.html' %}
+{% include 'ser_dash.html' %}
+{% block content %}
+<body>
+    <div class="jumbotron text-center">
+        <h1>UPDATE STATUS</h1>
+        <form action="{% url 'fuelupdate-status' %}" method="post" id="stat">
+            {% csrf_token %}
+            {{form.as_p}}
+            
+            Service_id: <input type="text" name="service_id">
+            Status: <select name="status" form="stat">
+                <option value="In progress">In progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+            <button type="submit" class="btn btn-success">UPDATE</button>
+        </form>
+    </div>
+</body>
+{% endblock %}
